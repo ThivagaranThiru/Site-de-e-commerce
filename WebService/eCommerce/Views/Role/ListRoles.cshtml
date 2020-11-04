@@ -1,0 +1,89 @@
+﻿@model PaginatedList<Roles>
+
+@{
+    ViewData["Title"] = "ListRoles";
+}
+
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>List Roles</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Cart Area =================-->
+<section class="cart_area section_padding">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var role in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @role.Id
+                                </td>
+                                <td>
+                                    @role.Name
+                                </td>
+                                <td>
+                                    <a class="genric-btn primary-border radius" asp-area="" asp-controller="Role" asp-action="Edit" asp-route-id="@role.Id">Edit Role</a>
+                                </td>
+                                <td>
+                                    <a class="genric-btn danger-border radius" asp-area="" asp-route-id="@role.Id" asp-controller="Role" asp-action="Delete">Delete Role</a>
+                                </td>
+                            </tr>
+                        }
+                        <tr class="bottom_button">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="cupon_text float-right">
+                                    <a class="btn_1 checkout_btn_1" asp-area="" asp-controller="Role" asp-action="Create">Create Role</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="load_more_btn text-center">
+                @{
+                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                }
+                <a asp-action="ListRoles"
+                   asp-controller="Role"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   class="btn btn-default @prevDisabled">
+                    Previous
+                </a>
+                <a asp-action="ListRoles"
+                   asp-controller="Role"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   class="btn btn-default @nextDisabled">
+                    Next
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

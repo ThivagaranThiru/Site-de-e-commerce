@@ -1,0 +1,90 @@
+﻿@model PaniersTotal
+
+@{
+    ViewData["Title"] = "MyCommandByUser";
+}
+
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>All Command From User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Cart Area =================-->
+<section class="cart_area section_padding">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">User Email Command</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var panier in Model.paniers)
+                        {
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="@panier.Produit.ImageUrl" alt="" />
+                                    </div>
+                                    <div class="media-body">
+                                        <p>@panier.Produit.Name</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>@panier.Produit.Prix €</h5>
+                            </td>
+                            <td>
+                                <div class="cupon_text float-md-left">
+                                    <div class="product_count d-inline-block">
+                                        <input class="input-number" id="quantite" name="quantite" type="text" disabled="disabled" value="@panier.Quantite">
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td>
+                                <h5>@panier.totalPrix €</h5>
+                            </td>
+                            <td>
+                                <div class="media-body">
+                                    <p>@panier.User.Email</p>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h5>Total</h5>
+                        </td>
+                        <td>
+                            <h5>@Model.totalPaniers €</h5>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

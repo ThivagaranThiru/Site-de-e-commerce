@@ -1,0 +1,64 @@
+﻿@model Produits
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!--================ End Header Menu Area =================-->
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category">
+    <div class="container h-100">
+        <div class="blog-banner">
+            <div class="text-center">
+                <h1>Edit Produit</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ end banner area ================= -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_form_inner register_form_inner">
+                    <form class="row login_form" method="post" id="register_form">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Id" disabled="disabled" type="text" class="form-control" id="id" name="id">
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Name" type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Prix" type="number" class="form-control" id="prix" name="prix" placeholder="Prix" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prix'">
+                            <span asp-validation-for="Prix" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Stock" type="number" class="form-control" id="stock" name="stock" placeholder="Stock" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Stock'">
+                            <span asp-validation-for="Stock" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Description" type="text" class="form-control" id="description" name="description" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="ImageUrl" type="url" class="form-control" id="imageurl" name="imageurl" placeholder="ImageUrl" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ImageUrl'">
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <select asp-for="CategorieId" asp-items="@Model.categories"></select>
+                            <span asp-validation-for="CategorieId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="button button-register w-100">Edit Produit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

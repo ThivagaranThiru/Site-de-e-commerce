@@ -1,0 +1,123 @@
+﻿@model PaniersTotal
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Confirmation</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================ confirmation part start =================-->
+<section class="confirmation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="confirmation_tittle">
+                    <span>Thank you. Your order has been received.</span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-lx-4">
+                <div class="single_confirmation_details">
+                    <h4>Order Info</h4>
+                    <ul>
+                        <li>
+                            <p>Order Number</p><span>: Comming Soon</span>
+                        </li>
+                        <li>
+                            <p>Date</p><span>: 29 Juillet 2020</span>
+                        </li>
+                        <li>
+                            <p>Total</p><span>: @Model.totalPaniers €</span>
+                        </li>
+                        <li>
+                            <p>Payment Method</p><span>: Check payments</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-lx-4">
+                <div class="single_confirmation_details">
+                    <h4>Billing Address</h4>
+                    <ul>
+                        <li>
+                            <p>Street</p><span>: @Model.adresse.Street</span>
+                        </li>
+                        <li>
+                            <p>City</p><span>: @Model.adresse.City</span>
+                        </li>
+                        <li>
+                            <p>Country</p><span>: @Model.adresse.Country</span>
+                        </li>
+                        <li>
+                            <p>Postal Code</p><span>: @Model.adresse.PostalCode</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-lx-4">
+                <div class="single_confirmation_details">
+                    <h4>Shipping Address</h4>
+                    <ul>
+                        <li>
+                            <p>Street</p><span>: @Model.adresse.Street</span>
+                        </li>
+                        <li>
+                            <p>City</p><span>: @Model.adresse.City</span>
+                        </li>
+                        <li>
+                            <p>Country</p><span>: @Model.adresse.Country</span>
+                        </li>
+                        <li>
+                            <p>Postal Code</p><span>: @Model.adresse.PostalCode</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="order_details_iner">
+                    <h3>Order Details</h3>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var panier in Model.paniers)
+                            {
+                                <tr>
+                                    <th colspan="2"><span>@panier.Produit.Name</span></th>
+                                    <th>x @panier.Quantite</th>
+                                    <th> <span>@panier.totalPrix</span></th>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="col" colspan="3">Quantity : @Model.totalQuantite</th>
+                                <th scope="col">Total : @Model.totalPaniers €</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ confirmation part end =================-->

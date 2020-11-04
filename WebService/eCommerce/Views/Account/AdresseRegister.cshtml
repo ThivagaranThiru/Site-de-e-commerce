@@ -1,0 +1,59 @@
+﻿@model Adresses
+
+@{
+    ViewData["Title"] = "AdresseRegister";
+}
+<!--================ End Header Menu Area =================-->
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category">
+    <div class="container h-100">
+        <div class="blog-banner">
+            <div class="text-center">
+                <h1>Register</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ end banner area ================= -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section-top-border">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_form_inner register_form_inner">
+                    <h3>Add an Adress</h3>
+                    <form class="row login_form" method="post" id="register_form">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Street" type="text" class="form-control" id="street" name="street" placeholder="street" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Street'">
+                            <span asp-validation-for="Street" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="PostalCode" type="number" class="form-control" id="postalCode" name="postalCode" placeholder="postalCode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'PostalCode'">
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="City" type="text" required="required" class="form-control" id="city" name="city" placeholder="city" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'">
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Country" type="text" required="required" class="form-control" id="country" name="country" placeholder="country" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Country'">
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                        <!--divclass="col-md-12 form-group">
+            <div class="creat_account">
+                <input type="checkbox" id="f-option2" name="selector">
+                <label for="f-option2">Keep me logged in</label>
+            </div>
+        </div-->
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="button button-register w-100">Register</button>
+                        </div>
+                    </form>
+                    <h3>PLEASE WE NEED YOUR ADRESS</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->

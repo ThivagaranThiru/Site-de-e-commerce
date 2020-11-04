@@ -1,0 +1,22 @@
+﻿@{
+    if (Context.Session.GetString("SessionUser") != null)
+    {
+        var userInfo = JsonConvert.DeserializeObject<UserSession>(Context.Session.GetString("SessionUser"));
+
+        if (userInfo.Role.Contains("Admin"))
+        {
+            Layout = "_LayoutAdmin";
+        }
+        else if (userInfo.Role.Contains("User"))
+        {
+            Layout = "_LayoutUser";
+        }else
+        {
+            Layout = "_Layout";
+        }
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

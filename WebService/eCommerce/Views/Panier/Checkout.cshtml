@@ -1,0 +1,109 @@
+﻿@model PaniersTotal
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Checkout Area =================-->
+<section class="checkout_area section_padding">
+    <div class="container">
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Billing Details</h3>
+                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                        <div class="col-md-6 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="first" name="name" value="@Model.user.UserName"/>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="last" name="name" value="@Model.user.Name" />
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="email" name="compemailany" value="@Model.user.Email" />
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="country" name="country" value="@Model.adresse.Country"/>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="adresse" name="adresse" value="@Model.adresse.Street" />
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input disabled="disabled" type="text" class="form-control" id="city" name="city" value="@Model.adresse.City" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input disabled="disabled" type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" value="@Model.adresse.PostalCode"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <h2>Your Order</h2>
+                        <ul class="list">
+                            <li>
+                                <a href="#">
+                                    Product
+                                    <span>Total</span>
+                                </a>
+                            </li>
+                            @foreach (var panier in Model.paniers)
+                            {
+                                <li>
+                                    <a href="#">
+                                        @panier.Produit.Name
+                                        <span class="middle">x  @panier.Quantite</span>
+                                        <span class="last"> @panier.totalPrix € </span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                        <ul class="list list_2">
+                            <li>
+                                <a href="#">
+                                    Total
+                                    <span>@Model.totalPaniers €</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector" />
+                                <label for="f-option5">PayCard</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="payment_item active">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option6" name="selector" />
+                                <label for="f-option6">Paypal </label>
+                                <img src="img/product/single-product/card.jpg" alt="" />
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector" />
+                            <label for="f-option4">I’ve read and accept the </label>
+                            <a href="#">terms & conditions*</a>
+                        </div>
+                        <a class="btn_3" asp-area="" asp-controller="Panier" asp-action="Confirmation">Proceed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Checkout Area =================-->
