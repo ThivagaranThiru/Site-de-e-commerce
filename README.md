@@ -14,7 +14,7 @@ Les fonctionnalités implémentées sont :
    
    - Un utilisateur avec le ROLE_ADMIN doit avoir accès à des sections que les autres utilisateurs ne voient pas (ROLE_USER).
 
-   - Une interface permettant de manipuler (ajouter, afficher, éditer, supprimer) des données de votre API au travers de l'application et en fonction de l'utilisateur connecté et de son rôle.
+   - Une interface permettant de manipuler (ajouter, afficher, éditer, supprimer) des données de l'API au travers de l'application et en fonction de l'utilisateur connecté et de son rôle.
 
    - Un parcours d’achat de la mise au panier à la validation d’une commande.
 
