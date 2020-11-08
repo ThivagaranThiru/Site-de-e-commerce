@@ -1,4 +1,4 @@
-# Site de e-commerce (Application web & API) en ASP.NET Core
+# e-Commerce (Application web & API) en ASP.NET Core
 
 Le projet est une boutique e-shop avec un parcours d’achat complet (mise au panier, sélection de l'adresse d’envoi) avec les tables suivantes : Utilisateur, Adresse, Produit, Panier, Role, Categorie.
 
